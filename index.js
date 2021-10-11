@@ -113,10 +113,10 @@ Use the getInningScore() function below to do the following:
 function getInningScore(inning) {
   let home = inning();
   let away = inning();
-  const score = {Home: home, Away: away}
+  const score = { Home: home, Away: away}
   return score
 }
-console.log(getInningScore(inning))
+// console.log(getInningScore(inning))
 
 
 /* ⚾️⚾️⚾️ Task 5: scoreboard() ⚾️⚾️⚾️
@@ -126,7 +126,8 @@ Use the scoreboard function below to do the following:
   3. Receive a number of innings to be played
   4. Return an array where each of it's index values equals a string stating the
   Home and Away team's scores for each inning.  Not the cummulative score.
-  5. If there's a tie at the end of the innings, add this message containing the score to the end of the array:  "This game will require extra innings: Away 12 - Home 12"  (see tie example below)
+  5. If there's a tie at the end of the innings, add this message containing the score to the end of the array: 
+   "This game will require extra innings: Away 12 - Home 12"  (see tie example below)
      If there isn't a tie, add this message to the end of the array: "Final Score: Away 13 - Home 11"  (see no tie example below)
   
   NO TIE example: invoking scoreboard(getInningScore,inning, 9) might return 
@@ -160,9 +161,35 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(inningCb, getInningScoreCb, period){
+  let game = [];
+  let home = 0;
+  let away = 0;
+  // let finalScore = 0;
+    for (let i = 0; i < period; i++){
+      game.push(getInningScoreCb(inning));
+      home = game[i].Home + home
+      away = game[i].Away + away
+    }
+  console.log(game);
+  if (home === away){
+    return `This game will require extra innings: Home ${home} - Away ${away}`
+  }else{
+    return `Final score: Home ${home} - Away ${away}`
+  }
+
 }
+const game1 = scoreboard(inning, getInningScore, 9);
+const game2 = scoreboard(inning, getInningScore, 9);
+const game3 = scoreboard(inning, getInningScore, 9);
+const game4 = scoreboard(inning, getInningScore, 9);
+const game5 = scoreboard(inning, getInningScore, 9);
+console.log(game1);
+console.log(game2);
+console.log(game3);
+console.log(game4);
+console.log(game5);
+
 
 
 

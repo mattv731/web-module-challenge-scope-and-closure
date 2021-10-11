@@ -61,6 +61,9 @@ You will be running your tests in one terminal and debugging in the other. As yo
 Edit the `ReadMe` file with your answers to the questions below.
 
 1. In your own words, define closure (1-2 sentences).
+
+It is when an inner function reaches inside of the function it's built in for data.
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -82,9 +85,16 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+
+The return statement because it is another function inside of the original. It then reaches back into the original for data.
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+
+It will always be under 6. If you changed it so the random will be multiplied by 7 then you have the chance of rolling a 6.
+
 c. What is the lexical scope of `newRoll`? 
 
+It has access to the personal dice function.
 
 ### Task 3 - Stretch Goals
 
